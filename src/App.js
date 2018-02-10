@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Button from 'react-bootstrap/lib/Button';
+import {Button, ListGroup, ListGroupItem, Grid, Row, Col, Navbar} from 'react-bootstrap/lib';
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Iniciando o Projeto</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <Navbar>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#home">Angry Coach</a>
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
+        <Grid>
+          <Row className="show-grid">
+            <Col xs={12} md={2}/>
+            <Col xs={12} md={8}>
+              <ListGroup>
+                <ListGroupItem>Item 1</ListGroupItem> 
+                <ListGroupItem>Item 2</ListGroupItem> 
+                <ListGroupItem>Item 3</ListGroupItem>
+              </ListGroup>
+            </Col>
+            <Col xs={12} md={2}/>
+          </Row>
+        </Grid>
 
-        </p>
-        <p className="App-intro">
-          <Button>
-            Botão de Teste
-          </Button>
-        </p>
+
       </div>
     );
   }
