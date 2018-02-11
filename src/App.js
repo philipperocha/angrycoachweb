@@ -20,9 +20,48 @@ class App extends Component {
             <Col xs={12} md={2}/>
             <Col xs={12} md={8}>
               <ListGroup>
-                <ListGroupItem>Item 1</ListGroupItem> 
-                <ListGroupItem>Item 2</ListGroupItem> 
-                <ListGroupItem>Item 3</ListGroupItem>
+                <ListGroupItem>
+                  <div className="pull-left">
+                    Home Work about IELTS exam
+                  </div>
+                  <div className="pull-right">
+                    <Button bsStyle="success">
+                      Done
+                    </Button>
+                    <Button bsStyle="danger">
+                      Delete
+                    </Button>
+                  </div>
+                </ListGroupItem>
+
+                <ListGroupItem>
+                  <div className="pull-left">
+                    Do dishes
+                  </div>
+                  <div className="pull-right">
+                    <Button bsStyle="success">
+                      Done
+                    </Button>
+                    <Button bsStyle="danger">
+                      Delete
+                    </Button>
+                  </div>
+                </ListGroupItem> 
+
+                <ListGroupItem>
+                  <div className="pull-left">
+                    Buy food and cook
+                  </div>
+                  <div className="pull-right">
+                    <Button bsStyle="success">
+                      Done
+                    </Button>
+                    <Button bsStyle="danger">
+                      Delete
+                    </Button>
+                  </div>
+                </ListGroupItem> 
+
               </ListGroup>
             </Col>
             <Col xs={12} md={2}/>
