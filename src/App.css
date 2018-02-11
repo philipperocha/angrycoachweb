@@ -43,3 +43,12 @@
 .btn{
   margin-left: 4px;
 }
+
+.text-line-through {
+  text-decoration: line-through;
+  float: left!important;
+}
+
+.pull-left {
+  float: left!important;
+}
