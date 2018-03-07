@@ -45,10 +45,19 @@ class App extends Component {
     this.setState({notes: notesArray});
   }
 
+  componentDidMount(){
+    fetch('https://desolate-shore-59639.herokuapp.com/task')
+    .then(response => response.json())
+    .then(body  => { 
+      this.setState({notes: body});
+    })
+    .catch( err => alert(err));
+  }
+
   render() {
 
     let notes = this.state.notes.map((val, key) => {
-      return <Note key={key} text={val} delete={() => this.deleteNote(key)} />
+      return <Note key={key} note={val} delete={() => this.deleteNote(key)} />
     })
 
     return (

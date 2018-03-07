@@ -21,7 +21,6 @@ class Note extends Component {
         }else{
             this.setState({ done: true, textButtonDone: 'Cancel' });
         }
-        console.log(this.state.done);
     }
 
     render(){
@@ -29,9 +28,9 @@ class Note extends Component {
         let text;
 
         if (this.state.done){
-            text = <div className='text-line-through'>{this.props.text}</div>
+            text = <div className='text-line-through'>{this.props.note.name}</div>
         }else{
-            text = <div className='pull-left'>{this.props.text}</div>
+            text = <div className='pull-left'>{this.props.note.name}</div>
         }
 
         return(
