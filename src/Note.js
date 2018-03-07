@@ -15,6 +15,20 @@ class Note extends Component {
         this.done = this.done.bind(this); //Porque tive que botar isso pra funcionar o State??
     }
 
+    componentDidMount(){
+        
+        this.setState({
+            done: this.props.note.done
+        });
+        console.log(this.props.note.done);
+
+        if (this.props.note.done){
+            this.setState({ textButtonDone: 'Cancel' });
+        }else{
+            this.setState({ textButtonDone: 'Done' });
+        }
+    }
+
     done(){
         if (this.state.done){
             this.setState({ done: false, textButtonDone: 'Done' });
