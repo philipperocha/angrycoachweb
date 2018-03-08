@@ -8,17 +8,20 @@ class Note extends Component {
     constructor(props){
         super(props);
         this.state = {
+          deleted: false,
           done: false,
           textButtonDone: 'Done',
         }
 
         this.done = this.done.bind(this); //Porque tive que botar isso pra funcionar o State??
+        this.delete = this.delete.bind(this); //Porque tive que botar isso pra funcionar o State??
     }
 
     componentDidMount(){
         
         this.setState({
-            done: this.props.note.done
+            done: this.props.note.done,
+            deleted: this.props.note.deleted
         });
 
         if (this.props.note.done){
@@ -42,6 +45,13 @@ class Note extends Component {
         this.saveNote(currentNote);
     }
 
+    delete(){
+        let currentNote = this.props.note;
+        currentNote.deleted = true;
+        this.saveNote(currentNote);
+        this.props.delete(); //Deleta Note da lista principal
+    }
+
     saveNote(note){
         fetch(
             "http://localhost:9000/task/" + note.uuid.toString(), 
@@ -51,6 +61,7 @@ class Note extends Component {
                 body : JSON.stringify(note)
             }
         );
+        this.setState({done: note.done, deleted: note.deleted})
     }
 
     render(){
@@ -76,7 +87,7 @@ class Note extends Component {
                                 <Button bsStyle="success" onClick={this.done}>
                                     {this.state.textButtonDone}
                                 </Button>
-                                <Button bsStyle="danger" onClick={this.props.delete}>
+                                <Button bsStyle="danger" onClick={this.delete}>
                                     Delete
                                 </Button>
                             </div>
