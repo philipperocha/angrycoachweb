@@ -20,7 +20,6 @@ class Note extends Component {
         this.setState({
             done: this.props.note.done
         });
-        console.log(this.props.note.done);
 
         if (this.props.note.done){
             this.setState({ textButtonDone: 'Cancel' });
@@ -30,11 +29,28 @@ class Note extends Component {
     }
 
     done(){
+        let currentNote = this.props.note;
+
         if (this.state.done){
             this.setState({ done: false, textButtonDone: 'Done' });
+            currentNote.done = false;
         }else{
             this.setState({ done: true, textButtonDone: 'Cancel' });
+            currentNote.done = true;
         }
+
+        this.saveNote(currentNote);
+    }
+
+    saveNote(note){
+        fetch(
+            "http://localhost:9000/task/" + note.uuid.toString(), 
+            { 
+                method: 'PUT', 
+                headers: { 'content-type': 'application/json'}, 
+                body : JSON.stringify(note)
+            }
+        );
     }
 
     render(){
