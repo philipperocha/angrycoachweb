@@ -25,10 +25,16 @@ class App extends Component {
       return;
     }
 
-    let notesArray = this.state.notes;
-    notesArray.push(this.state.noteText);
-    this.setState({noteText: ''});
-    //this.textInput.focus();
+    var task = {name: this.state.noteText};
+
+    fetch(
+      "https://desolate-shore-59639.herokuapp.com/task", 
+      { 
+          method: 'POST', 
+          headers: { 'content-type': 'application/json'}, 
+          body : JSON.stringify(task)
+      }
+    ).then(() => window.location.reload());
   }
 
   handleKeyPress = (event) => {
@@ -46,6 +52,10 @@ class App extends Component {
   }
 
   componentDidMount(){
+    this.retrieveDataAPI();
+  }
+
+  retrieveDataAPI(){
     fetch('https://desolate-shore-59639.herokuapp.com/task')
     .then(response => response.json())
     .then(body  => { 

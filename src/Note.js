@@ -54,7 +54,7 @@ class Note extends Component {
 
     saveNote(note){
         fetch(
-            "http://localhost:9000/task/" + note.uuid.toString(), 
+            "https://desolate-shore-59639.herokuapp.com/task/" + note.uuid.toString(), 
             { 
                 method: 'PUT', 
                 headers: { 'content-type': 'application/json'}, 
