@@ -34,7 +34,9 @@ class App extends Component {
           headers: { 'content-type': 'application/json'}, 
           body : JSON.stringify(task)
       }
-    ).then(() => window.location.reload());
+    ).then(() => this.retrieveDataAPI());
+
+    //this.setState({noteText: ''});
   }
 
   handleKeyPress = (event) => {
