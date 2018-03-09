@@ -1,4 +1,4 @@
-const reducerNote = ( state = [], action) => {
+const reducerNote = ( state = [1,2,3,4,5,6], action) => {
     
     switch(action.type) {
         case 'ADD_NOTE':
