@@ -4,7 +4,7 @@ import './App.css';
 import {Button, ListGroup, ListGroupItem, Grid, Row, Col, Navbar, 
   FormGroup, InputGroup, FormControl, DropdownButton, MenuItem} from 'react-bootstrap/lib';
 
-import ListNotes from './listNotes';
+import ListNotes from './redux/containers/notesContainer';
 
 class App extends Component {
 
@@ -100,7 +100,7 @@ class App extends Component {
           <Col xs={12} md={2}/>
         </Row>
 
-        <ListNotes notesList={this.state.notes}/>
+        <ListNotes />
 
       </div>
     );

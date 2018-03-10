@@ -5,6 +5,7 @@ import Note from './note';
 class ListNotes extends Component {
 
     render(){
+        console.log(this.props);
         var notes = this.props.notesList.map((val, key) => {
             
             if (!val.deleted){ //Somente retorna Notes que nao foram deletados
