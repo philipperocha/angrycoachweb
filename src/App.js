@@ -69,14 +69,6 @@ class App extends Component {
 
   render() {
 
-    // let notes = this.state.notes.map((val, key) => {
-
-    //   if (!val.deleted){ //Somente retorna Notes que nao foram deletados
-    //     return <Note key={key} note={val} delete={() => this.deleteNote(key)} />
-    //   }
-      
-    // })
-
     return (
       <div className="App">
         <Navbar>
