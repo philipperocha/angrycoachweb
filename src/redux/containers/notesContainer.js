@@ -5,7 +5,7 @@ import  ListNotes from '../../listNotes';
 
 function mapStateToProps(state) {
     console.log(state);
-    return { notesList: state.NoteReducer }
+    return { notesList: state.noteReducer }
 }
 
 export default connect(mapStateToProps)(ListNotes)
