@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import {Button, ListGroup, ListGroupItem, Grid, Row, Col, Navbar, 
   FormGroup, InputGroup, FormControl, DropdownButton, MenuItem} from 'react-bootstrap/lib';
-import Note from './Note';
+
+import ListNotes from './listNotes';
 
 class App extends Component {
 
@@ -68,13 +69,13 @@ class App extends Component {
 
   render() {
 
-    let notes = this.state.notes.map((val, key) => {
+    // let notes = this.state.notes.map((val, key) => {
 
-      if (!val.deleted){ //Somente retorna Notes que nao foram deletados
-        return <Note key={key} note={val} delete={() => this.deleteNote(key)} />
-      }
+    //   if (!val.deleted){ //Somente retorna Notes que nao foram deletados
+    //     return <Note key={key} note={val} delete={() => this.deleteNote(key)} />
+    //   }
       
-    })
+    // })
 
     return (
       <div className="App">
@@ -107,7 +108,7 @@ class App extends Component {
           <Col xs={12} md={2}/>
         </Row>
 
-        {notes}
+        <ListNotes notesList={this.state.notes}/>
 
       </div>
     );
