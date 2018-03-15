@@ -4,6 +4,20 @@ import Note from './note';
 
 class ListNotes extends Component {
 
+
+    componentDidMount(){
+        this.retrieveDataAPI();
+    }
+    
+    retrieveDataAPI(){
+        fetch('https://desolate-shore-59639.herokuapp.com/task')
+        .then(response => response.json())
+        .then(body  => { 
+          this.props.addAll(body);
+        })
+        .catch( err => alert(err));
+    }
+
     render(){
         console.log(this.props);
         var notes = this.props.notesList.map((val, key) => {
