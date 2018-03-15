@@ -12,7 +12,8 @@ class ListNotes extends Component {
     retrieveDataAPI(){
         fetch('https://desolate-shore-59639.herokuapp.com/task')
         .then(response => response.json())
-        .then(body  => { 
+        .then(body  => {
+          //We pass to Store the body from API
           this.props.addAll(body);
         })
         .catch( err => alert(err));

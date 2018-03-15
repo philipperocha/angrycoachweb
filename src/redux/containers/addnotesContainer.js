@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  AddNotes from '../../addNotes';
 
-import { addNote } from '../actions/actions'
+import { addAll } from '../actions/actions'
 
 function mapStateToProps(state) {
     
@@ -10,7 +10,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-    addNote
+    addAll
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNotes)

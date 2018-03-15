@@ -32,6 +32,16 @@ class AddNotes extends Component {
             }
         ).then(() => this.retrieveDataAPI());
     }
+
+    retrieveDataAPI(){
+        fetch('https://desolate-shore-59639.herokuapp.com/task')
+        .then(response => response.json())
+        .then(body  => {
+            //We pass to Store the body from API
+            this.props.addAll(body);
+        })
+        .catch( err => alert(err));
+      }
     
     handleKeyPress = (event) => {
         if (event.key === 'Enter'){

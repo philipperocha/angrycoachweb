@@ -22,19 +22,6 @@ class App extends Component {
     this.setState({notes: notesArray});
   }
 
-  componentDidMount(){
-    this.retrieveDataAPI();
-  }
-
-  retrieveDataAPI(){
-    fetch('https://desolate-shore-59639.herokuapp.com/task')
-    .then(response => response.json())
-    .then(body  => { 
-      this.setState({notes: body});
-    })
-    .catch( err => alert(err));
-  }
-
   render() {
 
     return (
