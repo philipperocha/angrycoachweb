@@ -22,6 +22,7 @@ export const deleteNote = note => {
 }
 
 export const addAll = note => {
+    //console.log(note);
     return {
         type: 'ADD_ALL',
         note

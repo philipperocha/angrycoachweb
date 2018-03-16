@@ -37,11 +37,11 @@ class AddNotes extends Component {
         fetch('https://desolate-shore-59639.herokuapp.com/task')
         .then(response => response.json())
         .then(body  => {
-            //We pass to Store the body from API
+            //We pass the body from API to the Store
             this.props.addAll(body);
         })
         .catch( err => alert(err));
-      }
+    }
     
     handleKeyPress = (event) => {
         if (event.key === 'Enter'){

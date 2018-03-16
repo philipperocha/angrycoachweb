@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Note from './note';
+import Note from './redux/containers/noteContainer';
 
 class ListNotes extends Component {
 
@@ -13,6 +13,8 @@ class ListNotes extends Component {
         fetch('https://desolate-shore-59639.herokuapp.com/task')
         .then(response => response.json())
         .then(body  => {
+           // console.log(body);
+
           //We pass to Store the body from API
           this.props.addAll(body);
         })
@@ -20,11 +22,14 @@ class ListNotes extends Component {
     }
 
     render(){
-        console.log(this.props);
+        //console.log(this.props.notesList);
+        
+        //notesList is from Store ok?
         var notes = this.props.notesList.map((val, key) => {
             
             if (!val.deleted){ //Somente retorna Notes que nao foram deletados
-                return <Note key={key} note={val} delete={() => this.deleteNote(key)} />
+                //console.log(val);
+                return <Note key={key} note={val} />
             }
         });
 

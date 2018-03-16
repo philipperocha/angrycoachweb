@@ -18,7 +18,8 @@ class Note extends Component {
     }
 
     componentDidMount(){
-        
+
+        //props.note is from application STORE
         this.setState({
             done: this.props.note.done,
             deleted: this.props.note.deleted
@@ -49,9 +50,11 @@ class Note extends Component {
         let currentNote = this.props.note;
         currentNote.deleted = true;
         this.saveNote(currentNote);
-        this.props.delete(); //Deleta Note da lista principal
+        //this.props.delete(); //Deleta Note da lista principal
     }
 
+    //This method saves our current Note to API (Update)
+    //After, update the application Store (Global State) <-- retrieveDataAPI method
     saveNote(note){
         fetch(
             "https://desolate-shore-59639.herokuapp.com/task/" + note.uuid.toString(), 
@@ -60,11 +63,23 @@ class Note extends Component {
                 headers: { 'content-type': 'application/json'}, 
                 body : JSON.stringify(note)
             }
-        );
-        this.setState({done: note.done, deleted: note.deleted})
+        ).then(() => this.retrieveDataAPI());
+
+        this.setState({done: note.done, deleted: note.deleted});
+    }
+
+    retrieveDataAPI(){
+        fetch('https://desolate-shore-59639.herokuapp.com/task')
+        .then(response => response.json())
+        .then(body  => {
+            //We pass the body from API to the Store
+            this.props.addAll(body);
+        })
+        .catch( err => alert(err));
     }
 
     render(){
+        //console.log(this.props.note.name + ' / done? ' + this.props.note.done + ' / deleted? ' + this.props.note.deleted);
 
         let text;
 

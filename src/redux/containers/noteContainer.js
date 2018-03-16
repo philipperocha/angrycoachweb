@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import  ListNotes from '../../listNotes';
+import  Note from '../../note';
 
-import { addAll } from '../actions/actions'
-
+import { doneNote, deleteNote, addAll } from '../actions/actions'
 
 /*
   map state to props -> antes de entregar o Componente ao codigo que vai utiliza-lo ele 
@@ -16,7 +15,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+    doneNote,
+    deleteNote,
     addAll
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListNotes)
+export default connect(mapStateToProps, mapDispatchToProps)(Note)
